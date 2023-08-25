@@ -2,8 +2,9 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
 import { Pressable, useColorScheme } from "react-native";
 import { Text } from "react-native";
-
+import { StyleSheet } from "react-native";
 import Colors from "../../constants/Colors";
+import { View } from "../../components/Themed";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -27,8 +28,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Tab One",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: "Form",
+          tabBarIcon: ({ color }) => <TabBarIcon name="edit" color={color} />,
           headerRight: () => (
             <>
               <Link href="/modal" asChild>
@@ -47,32 +48,72 @@ export default function TabLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name="two"
         options={{
-          title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: "Cool Kids",
+          tabBarIcon: ({ color }) => <TabBarIcon name="money" color={color} />,
           headerRight: () => (
-            <>
-              <Link href="/ruth" asChild>
-                <Pressable>{({ pressed }) => <Text>Ruth</Text>}</Pressable>
-              </Link>
-              <Link href="/yid" asChild>
-                <Pressable>{({ pressed }) => <Text>Yid</Text>}</Pressable>
-              </Link>
-              <Link href="/jossy" asChild>
-                <Pressable>{({ pressed }) => <Text>Jossy</Text>}</Pressable>
-              </Link>
-              <Link href="/yoda" asChild>
-                <Pressable>{({ pressed }) => <Text>Yoda</Text>}</Pressable>
-              </Link>
-              <Link href="/jj" asChild>
-                <Pressable>{({ pressed }) => <Text>JJ</Text>}</Pressable>
-              </Link>
-            </>
+            <View style={styles.container}>
+              <View style={styles.space}>
+                <Link href="/Ruth" asChild>
+                  <Pressable>{({ pressed }) => <Text>Ruth</Text>}</Pressable>
+                </Link>
+              </View>
+              <View style={styles.space}>
+                <Link href="/Yid" asChild>
+                  <Pressable>{({ pressed }) => <Text>Yid</Text>}</Pressable>
+                </Link>
+              </View>
+              <View style={styles.space}>
+                <Link href="/Jossy" asChild>
+                  <Pressable>{({ pressed }) => <Text>Jossy</Text>}</Pressable>
+                </Link>
+              </View>
+              <View style={styles.space}>
+                <Link href="/Yoda" asChild>
+                  <Pressable>{({ pressed }) => <Text>Yoda</Text>}</Pressable>
+                </Link>
+              </View>
+              <View style={styles.space}>
+                <Link href="/JJ" asChild>
+                  <Pressable>{({ pressed }) => <Text>JJ</Text>}</Pressable>
+                </Link>
+              </View>
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Notes"
+        options={{
+          title: "Notes",
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="sticky-note" color={color} />
           ),
         }}
       />
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 2,
+    flexDirection: "row", 
+    alignItems: "center",
+    justifyContent: "center",
+  
+  },
+  space: {
+    padding: 8,
+    marginRight: 2,
+    marginLeft:5,
+  },
+  separator: {
+    marginVertical: 30,
+    height: 1,
+    width: "80%",
+  },
+});
