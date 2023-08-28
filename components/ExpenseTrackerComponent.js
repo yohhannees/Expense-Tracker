@@ -44,7 +44,7 @@ const ExpenseTrackerComponent = () => {
               {people.map(to =>
                 person !== to && (
                   <View key={`${person}-${to}`} style={styles.debtRegisterItem}>
-                    <Text>{`Amount to ${to}: `}</Text>
+                    <Text>{` to ${to}: `}</Text>
                     <TextInput
                       style={styles.amountInput}
                       placeholder="Enter amount"
@@ -62,7 +62,7 @@ const ExpenseTrackerComponent = () => {
                     <TouchableOpacity
                       style={[
                         styles.addButton,
-                        { backgroundColor: addStatus[person]?.[to] ? 'green' : '#007bff' },
+                        { backgroundColor: addStatus[person]?.[to] ? '#43b581' : '#007bff' },
                       ]}
                       onPress={() => handleDebtSubmit(person, to, debts[person]?.[to] || 0)}
                     >
@@ -83,8 +83,8 @@ const ExpenseTrackerComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 2,
-    backgroundColor: '#fff',
+    padding: 16,
+    backgroundColor: '#f0f0f0',
     borderRadius: 8,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -93,17 +93,17 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   personContainer: {
-    marginBottom: 6,
+    marginBottom: 12,
   },
   personName: {
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: 'bold',
-    marginLeft:110,
+    color: '#333',
   },
   debtRegisterSection: {
-    backgroundColor: '#f7f7f7',
+    backgroundColor: '#fff',
     paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingVertical: 12,
     borderRadius: 8,
   },
   debtRegisterItem: {
@@ -114,24 +114,23 @@ const styles = StyleSheet.create({
   amountInput: {
     flex: 1,
     borderWidth: 1,
-    paddingHorizontal: 8,
-    paddingVertical: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
     borderRadius: 4,
-    marginTop: 4,
-    marginBottom: 4,
-    padding: 3,
+    marginLeft: 10,
     borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 4,
   },
   addButton: {
     marginLeft: 10,
-    paddingVertical: 6,
-    paddingHorizontal: 10,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
     borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   addButtonText: {
     color: 'white',
+    fontSize: 16,
   },
 });
 
