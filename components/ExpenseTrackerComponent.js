@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 4,
   },
-  addButton: {
+  addButton: {++
     marginLeft: 10,
     paddingVertical: 6,
     paddingHorizontal: 10,
