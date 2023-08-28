@@ -1,18 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Button } from "react-native";
+
+const friends = ["JJ", "Jossy", "Ruth", "Yoda", "Yid"];
 
 export default function ModalScreen() {
+  const [currentTurnIndex, setCurrentTurnIndex] = useState(0);
+
+  const handleNextTurn = () => {
+    const nextIndex = (currentTurnIndex + 1) % friends.length;
+    setCurrentTurnIndex(nextIndex);
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/modal.tsx" />
-
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+      <Text style={styles.title}> Payment Turn</Text>
+      <Text style={styles.turnText}>
+        It's {friends[currentTurnIndex]}'s turn to pay!
+      </Text>
+      <Button title="Next Turn" onPress={handleNextTurn} />
     </View>
   );
 }
@@ -20,16 +26,15 @@ export default function ModalScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  turnText: {
+    fontSize: 18,
+    marginVertical: 20,
   },
 });

@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   debtText: {
     fontSize: 16,
-    marginBottom: 8,
+    marginBottom: 8, 
   },
 });
 

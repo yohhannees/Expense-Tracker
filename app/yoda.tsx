@@ -1,22 +1,23 @@
-import { StatusBar } from "expo-status-bar";
-import { Platform, StyleSheet } from "react-native";
-
-import EditScreenInfo from "../components/EditScreenInfo";
-import { Text, View } from "../components/Themed";
+import React from "react";
+import { StyleSheet, View, Image } from "react-native";
+import { Text } from "../components/Themed";
 
 export default function ModalScreen() {
+  const dummyPerson = {
+    name: "Yoda",
+    phone: "123-456-7890",
+    email: "yoda@example.com",
+    bankAccount: "9876543210",
+    profilePhoto: require("../assets/images/cover.jpg"), // Add the actual path to the profile photo
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Yid</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="app/modal.tsx" />
-
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+      <Image source={dummyPerson.profilePhoto} style={styles.profilePhoto} />
+      <Text style={styles.title}>{dummyPerson.name}</Text>
+      <Text style={styles.info}>Phone: {dummyPerson.phone}</Text>
+      <Text style={styles.info}>Email: {dummyPerson.email}</Text>
+      <Text style={styles.info}>Bank Account: {dummyPerson.bankAccount}</Text>
     </View>
   );
 }
@@ -26,14 +27,21 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    padding: 20,
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
+    marginTop: 10,
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+  info: {
+    fontSize: 16,
+    marginTop: 5,
+  },
+  profilePhoto: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    marginBottom: 10,
   },
 });

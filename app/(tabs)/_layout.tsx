@@ -6,9 +6,6 @@ import { StyleSheet } from "react-native";
 import Colors from "../../constants/Colors";
 import { View } from "../../components/Themed";
 
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
@@ -101,19 +98,33 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   container: {
     flex: 2,
-    flexDirection: "row", 
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-  
   },
   space: {
-    padding: 8,
-    marginRight: 2,
-    marginLeft:5,
+    padding: 7,
+    marginRight: 6,
+    marginLeft: 5,
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 4,
   },
   separator: {
     marginVertical: 30,
     height: 1,
     width: "80%",
   },
+  link: {
+    padding: 10,
+    backgroundColor: "#f0f0f0",
+    borderRadius: 5,
+  },
 });
+
+
+
