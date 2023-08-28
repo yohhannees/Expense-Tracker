@@ -42,3 +42,23 @@ export function View(props: ViewProps) {
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
+// const styles = StyleSheet.create({
+//   container: {
+//     padding: 16,
+//     backgroundColor: "#fff",
+//     borderRadius: 8,
+//     shadowColor: "#000",
+//     shadowOffset: { width: 0, height: 2 },
+//     shadowOpacity: 0.2,
+//     shadowRadius: 4,
+//     elevation: 4,
+//   },
+//   input: {
+//     marginTop: 8,
+//     marginBottom: 8,
+//     padding: 8,
+//     borderColor: "#ccc",
+//     borderWidth: 1,
+//     borderRadius: 4,
+//   },
+// });

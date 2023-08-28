@@ -84,13 +84,21 @@ const ExpenseTrackerComponent = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 2,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 4,
   },
   personContainer: {
     marginBottom: 6,
   },
   personName: {
-    fontSize: 18,
+    fontSize: 30,
     fontWeight: 'bold',
+    marginLeft:110,
   },
   debtRegisterSection: {
     backgroundColor: '#f7f7f7',
@@ -107,10 +115,16 @@ const styles = StyleSheet.create({
     flex: 1,
     borderWidth: 1,
     paddingHorizontal: 8,
-    paddingVertical: 4,
+    paddingVertical: 1,
+    borderRadius: 4,
+    marginTop: 4,
+    marginBottom: 4,
+    padding: 3,
+    borderColor: '#ccc',
+    borderWidth: 1,
     borderRadius: 4,
   },
-  addButton: {++
+  addButton: {
     marginLeft: 10,
     paddingVertical: 6,
     paddingHorizontal: 10,
