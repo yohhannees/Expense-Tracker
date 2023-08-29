@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
-import { Text } from "../components/Themed";
+import { StyleSheet, View, Image, Text } from "react-native";
+// import { Text } from "../components/Themed";
 
 export default function ModalScreen() {
   const dummyPerson = {
